@@ -5,6 +5,6 @@ serverSocket.bind(('', severPort))
 print("server working")
 while 1:
     message, clientAddress = serverSocket.recvfrom(2048)
-    modifiedMessage = message.upper()
-    serverSocket.sendto(modifiedMessage, (clientAddress, serverPort))
+    modifiedMessage = message.decode().upper()
+    serverSocket.sendto(modifiedMessage.encode('utf-8'), (clientAddress, serverPort))
 
